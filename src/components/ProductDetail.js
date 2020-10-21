@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { getProductById } from '../services/getProducts'
+import { postProduct } from '../services/postProduct'
 
 const ProductDetail = (props) => {
     const id = props.params.match.params.id
+    const cartCount = JSON.parse(localStorage.getItem('cartCount'))
 
     const [product, setProduct] = useState([]);
     const [colorCode, setColorCode] = useState('');
     const [storageCode, setStorageCode] = useState('');
-
 
     useEffect(() => {
         getProductById(id)
@@ -20,16 +22,28 @@ const ProductDetail = (props) => {
 
     const handleColorSelected = (event) => {
         setColorCode(event.target.value)
-        
+
     }
 
     const handleStorageSelected = (event) => {
         setStorageCode(event.target.value)
-        
+
+    }
+    
+    const sendProductToCart = () => {
+        postProduct({id, colorCode, storageCode})
+        .then(data => {
+            if(!cartCount) {
+                localStorage.setItem('cartCount', JSON.stringify(data.count))
+            } else {
+              setCartCount(data.count)  
+            }
+        })
     }
 
-    const sendProductToCart = () => {
-        console.log(colorCode, storageCode)
+    const setCartCount = (data) => {
+        let total = cartCount  + data;
+        localStorage.setItem('cartCount', JSON.stringify(total))
     }
     return (
         <React-Fragment>
@@ -69,12 +83,12 @@ const ProductDetail = (props) => {
                         </ul>
                     </li>
                     {product.dimentions !== "-"
-                    ? <li>Dimensiones: {product.dimentions}</li>
-                    : ''
+                        ? <li>Dimensiones: {product.dimentions}</li>
+                        : ''
                     }
                     {product.weight !== ''
-                    ? <li>Peso: {product.weight}gr.</li>
-                    : ''
+                        ? <li>Peso: {product.weight}gr.</li>
+                        : ''
                     }
                 </ul>
             </div>
@@ -99,6 +113,7 @@ const ProductDetail = (props) => {
                     </select>
                 </form>
                 <button onClick={sendProductToCart}>Añadir a la cesta</button>
+                <Link to="/">Volver al listado de productos</Link>
             </div>
         </React-Fragment>
     )

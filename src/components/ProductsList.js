@@ -4,13 +4,18 @@ import { getProducts } from '../services/getProducts'
 const ProductsList = () => {
 
     const [products, setProducts] = useState([]);
+    const productsDataStored = JSON.parse(localStorage.getItem('productsData'))
 
     useEffect(() => {
-        getProducts()
+        if(productsDataStored) {
+            setProducts(productsDataStored)
+        } else {
+          getProducts()
             .then(data => {
                 setProducts(data);
                 localStorage.setItem('productsData', JSON.stringify(data))
-            })
+            })  
+        } 
     }, [])
 
     return (
