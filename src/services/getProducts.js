@@ -3,9 +3,11 @@ const baseUrl = 'https://front-test-api.herokuapp.com/'
 export const getProducts = () => {
     return fetch(baseUrl + 'api/product')
     .then(response => response.json())
-    .then(data => {
-        const products = data.map(item => item)
+    .then(data => data.map(item => item))
+}
 
-        return products;
-    })
+export const getProductById = (id) => {
+    return fetch(baseUrl + 'api/product/' + id)
+    .then(response => response.json())
+    .then(data => data)
 }

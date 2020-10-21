@@ -10,11 +10,12 @@ const Product = (props) => {
             <Link to={`/product/${id}`}>
                 <div className="product_card">
                     <img src={imgUrl} alt={brand + model} />
-                    <div>
-                        <span>Marca: {brand}</span>
+                    <div className="model-brand_container">
+                        <span>Marca: {brand} </span>
                         <span>Modelo: {model}</span>
-                        <span>Precio: {price}</span>
                     </div>
+
+                    <span>Precio: {price}</span>
                 </div>
             </Link>
         </React-Fragment>
