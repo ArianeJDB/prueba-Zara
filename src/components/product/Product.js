@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom'
 import './product.css'
 
@@ -19,5 +20,11 @@ const Product = (props) => {
         </div>
     )
 }
-
+Product.propTypes = {
+    id: PropTypes.string.isRequired,
+    imgUrl: PropTypes.string.isRequired,
+    brand: PropTypes.string.isRequired,
+    model: PropTypes.object.isRequired,
+    price: PropTypes.number.isRequired
+}
 export default Product

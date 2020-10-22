@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import './cart.css'
 
 const Cart = ({ cartCount }) => {
@@ -24,4 +25,7 @@ const Cart = ({ cartCount }) => {
     )
 }
 
+Cart.propTypes = {
+    cartCount: PropTypes.number
+}
 export default Cart;

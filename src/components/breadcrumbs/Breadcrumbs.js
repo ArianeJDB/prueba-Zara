@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import './breadcrumbs.css'
 
 const Breadcrumbs = (props) => {
@@ -34,4 +35,8 @@ const Breadcrumbs = (props) => {
   )
 }
 
+Breadcrumbs.propTypes = {
+  path: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired
+}
 export default Breadcrumbs

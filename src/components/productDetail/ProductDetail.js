@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { getProductById } from '../../services/getProducts'
 import { addProduct } from '../../services/addProduct'
 import Header from '../header/Header'
+import PropTypes from 'prop-types';
 import './productDetail.css'
 
 const ProductDetail = (props) => {
@@ -118,5 +119,7 @@ const ProductDetail = (props) => {
     )
 }
 
-
+ProductDetail.propTypes = {
+    params: PropTypes.string.isRequired
+}
 export default ProductDetail

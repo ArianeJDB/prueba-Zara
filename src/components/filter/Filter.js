@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './filter.css'
 
 const Filter = ({setInputValue}) => {
@@ -10,4 +11,7 @@ const Filter = ({setInputValue}) => {
     )
 }
 
+Filter.propTypes = {
+    setInputValue: PropTypes.function
+}
 export default Filter;
