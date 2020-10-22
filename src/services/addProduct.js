@@ -1,6 +1,6 @@
 const baseUrl = 'https://front-test-api.herokuapp.com/'
 
-export const postProduct = (payload) => {
+export const addProduct = (payload) => {
     return fetch(baseUrl + 'api/cart', {
         method: 'POST',
         body: JSON.stringify(payload),

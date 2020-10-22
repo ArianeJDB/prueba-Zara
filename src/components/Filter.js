@@ -1,10 +1,9 @@
 import React from 'react';
-// import './header.css'
 
-const Filter = (props) => {
+const Filter = ({setInputValue}) => {
     return (
         <div>
-            <input type="text" onChange={(e) => props.setInputValue(e.target.value)}/>
+            <input type="text" onChange={(e) => setInputValue(e.target.value)}/>
         </div>
     )
 }

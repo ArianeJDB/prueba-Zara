@@ -4,19 +4,19 @@ import './breadcrumbs.css'
 
 const Breadcrumbs = (props) => {
 
-    const { path, label } = props
-    let breadcrumbsList = [{path: '/', label: 'Inicio'}];
+  const { path, label } = props
+  let breadcrumbsList = [{ path: '/', label: 'Inicio' }];
 
-    const newNav = breadcrumbsList.findIndex (item => item.label === label);
+  const newNav = breadcrumbsList.findIndex(item => item.label === label);
   if (newNav === -1) {
-    breadcrumbsList = [...breadcrumbsList, {path, label: label}];
+    breadcrumbsList = [...breadcrumbsList, { path, label: label }];
   } else if (newNav > 0) {
-    const newArray = breadcrumbsList.slice (0, newNav + 1);
+    const newArray = breadcrumbsList.slice(0, newNav + 1);
     breadcrumbsList = [...newArray];
   } else if (newNav === 0) {
-    breadcrumbsList = [{path, label: label}];
+    breadcrumbsList = [{ path, label: label }];
   }
-  const newBC = breadcrumbsList.map ((route, index) => {
+  const newBC = breadcrumbsList.map((route, index) => {
     return (
       <li key={index}>
         <Link to={route.path}>{route.label}</Link>
@@ -25,13 +25,13 @@ const Breadcrumbs = (props) => {
     );
   });
 
-    return (
-        <nav>
-            <ul>
-               {newBC}
-            </ul>
-        </nav>
-    )
+  return (
+    <nav>
+      <ul>
+        {newBC}
+      </ul>
+    </nav>
+  )
 }
 
 export default Breadcrumbs

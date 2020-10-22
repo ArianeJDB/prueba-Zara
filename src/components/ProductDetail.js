@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { getProductById } from '../services/getProducts'
-import { postProduct } from '../services/postProduct'
+import { addProduct } from '../services/addProduct'
 import Header from './Header'
 
 const ProductDetail = (props) => {
     const id = props.params.match.params.id
-    const cartCount = JSON.parse(localStorage.getItem('cartCount'))
     const currentPage = useLocation().pathname;
-
+    const [cartCount, setCartCount] = useState(null)
     const [product, setProduct] = useState([]);
     const [colorCode, setColorCode] = useState('');
     const [storageCode, setStorageCode] = useState('');
@@ -22,31 +21,15 @@ const ProductDetail = (props) => {
             })
     }, [id])
 
-    const handleColorSelected = (event) => {
-        setColorCode(event.target.value)
+    const handleColorSelected = event => setColorCode(event.target.value)
 
-    }
+    const handleStorageSelected = event => setStorageCode(event.target.value)
 
-    const handleStorageSelected = (event) => {
-        setStorageCode(event.target.value)
-
-    }
-    
     const sendProductToCart = () => {
-        postProduct({id, colorCode, storageCode})
-        .then(data => {
-            if(!cartCount) {
-                localStorage.setItem('cartCount', JSON.stringify(data.count))
-            } else {
-              setCartCount(data.count)  
-            }
-        })
+        addProduct({id, colorCode, storageCode})
+        .then(data => setCartCount(data.count))
     }
 
-    const setCartCount = (data) => {
-        let total = cartCount  + data;
-        localStorage.setItem('cartCount', JSON.stringify(total))
-    }
     return (
         <React-Fragment>
             <Header 
