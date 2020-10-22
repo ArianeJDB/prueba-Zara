@@ -20,7 +20,7 @@ const Breadcrumbs = (props) => {
     return (
       <li key={index}>
         <Link to={route.path}>{route.label}</Link>
-        <span className="hidden"> > </span>
+        <span className="hidden"> {">"}</span>
       </li>
     );
   });

@@ -1,6 +1,9 @@
 header {
-    background-color: red;
-    padding: 20px 20px 20px 40px;
+    background-color: teal;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .fa-mobile {

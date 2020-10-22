@@ -1,3 +1,11 @@
 li:last-child .hidden {
-    display: none
+    display: none;
+}
+
+li {
+    list-style: none;
+}
+
+ul {
+    display: flex;
 }

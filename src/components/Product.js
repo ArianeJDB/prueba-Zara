@@ -1,25 +1,22 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import './product.css'
 
 const Product = (props) => {
     const { id, imgUrl, brand, model, price } = props
-    // console.log('props', props)
 
     return (
-        <React-Fragment>
+        <div className="product_card">
             <Link to={`/product/${id}`}>
-                <div className="product_card">
-                    <img src={imgUrl} alt={brand + model} />
-                    <div className="model-brand_container">
-                        <span>Marca: {brand} </span>
-                        <span>Modelo: {model}</span>
-                    </div>
-
-                    <span>Precio: {price}</span>
+                <img src={imgUrl} alt={brand + model} />
+                <div className="model-brand_container">
+                    <span>Marca: {brand} </span>
+                    <span>Modelo: {model}</span>
                 </div>
-            </Link>
-        </React-Fragment>
 
+                <span>Precio: {price}€</span>
+            </Link>
+        </div>
     )
 
 }
