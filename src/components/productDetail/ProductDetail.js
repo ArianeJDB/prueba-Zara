@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { getProductById } from '../services/getProducts'
-import { addProduct } from '../services/addProduct'
-import Header from './Header'
+import { getProductById } from '../../services/getProducts'
+import { addProduct } from '../../services/addProduct'
+import Header from '../header/Header'
 import './productDetail.css'
 
 const ProductDetail = (props) => {
     const id = props.params.match.params.id
-    console.log('props', typeof props.params)
     const currentPage = useLocation().pathname;
     const [cartCount, setCartCount] = useState(null)
     const [product, setProduct] = useState([]);
@@ -111,7 +110,7 @@ const ProductDetail = (props) => {
                             </div>
                         </form>
                         <button onClick={sendProductToCart} className="btn">Añadir a la cesta</button>
-                        <Link to="/">Volver al listado de productos</Link>
+                        <Link to="/" className="link_home">Volver al listado de productos</Link>
                     </div>
                 </div>
             </section>

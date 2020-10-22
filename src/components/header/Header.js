@@ -1,8 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Breadcrumbs from './Breadcrumbs'
-import Cart from './Cart'
-
+import Breadcrumbs from '../breadcrumbs/Breadcrumbs'
+import Cart from '../cart/Cart'
 import './header.css'
 
 const Header = ({ path, label, cartCount }) => {
@@ -16,7 +15,6 @@ const Header = ({ path, label, cartCount }) => {
                 label={label}
             />
             <Cart cartCount={cartCount} />
-         
         </header>
     )
 }

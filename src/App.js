@@ -1,7 +1,8 @@
 import React from 'react';
-import ProductsList from './components/ProductsList'
-import ProductDetail from './components/ProductDetail'
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import ProductsList from './components/productList/ProductsList'
+import ProductDetail from './components/productDetail/ProductDetail'
+
 import './App.css';
 
 function App() {

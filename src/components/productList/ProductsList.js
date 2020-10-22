@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { getProducts } from '../services/getProducts'
-import Product from './Product'
-import Header from './Header'
-import Filter from './Filter'
-
+import { getProducts } from '../../services/getProducts'
+import Product from '../product/Product'
+import Header from '../header/Header'
+import Filter from '../filter/Filter'
 import './productsList.css'
 
 const ProductsList = () => {
@@ -43,7 +42,7 @@ const ProductsList = () => {
                 path='/'
                 label='Inicio'
             />
-            <section>
+            <section className="list_section">
                 <Filter setInputValue={setInputValue} />
                 <ul className="products_list">
                     {

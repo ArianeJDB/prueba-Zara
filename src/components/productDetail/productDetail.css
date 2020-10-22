@@ -41,7 +41,13 @@
     margin-left: 15px;
 }
 .btn {
-   margin-bottom: 20px;
+    margin-bottom: 20px;
+    background-color:teal;
+    border-radius: 9px;
+    border: none;
+    color: white;
+    font-weight: bold;
+    padding: 7px;
 }
 
 .color_container, .storage_container {
@@ -51,4 +57,9 @@
 }
 form {
     display: flex;
+}
+
+.link_home {
+    font-weight: bold;
+
 }
