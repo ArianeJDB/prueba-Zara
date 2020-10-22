@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { getProductById } from '../services/getProducts'
 import { postProduct } from '../services/postProduct'
+import Header from './Header'
 
 const ProductDetail = (props) => {
     const id = props.params.match.params.id
     const cartCount = JSON.parse(localStorage.getItem('cartCount'))
+    const currentPage = useLocation().pathname;
 
     const [product, setProduct] = useState([]);
     const [colorCode, setColorCode] = useState('');
@@ -47,6 +49,11 @@ const ProductDetail = (props) => {
     }
     return (
         <React-Fragment>
+            <Header 
+                path={currentPage}
+                label={product.brand}
+                cartCount={cartCount}
+            />
             <div>
                 <img src={product.imgUrl} alt={product.brand} />
             </div>
